@@ -1,0 +1,16 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+private/
+runs/
+media/source/
+media/sanitized/
+inventory.jsonl
+inventory-summary.json
+actions.csv
+journal.jsonl
+rollback.csv
+archive-verification.csv
+cleanup-candidates.csv

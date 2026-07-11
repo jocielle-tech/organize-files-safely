@@ -1,0 +1,4 @@
+interface:
+  display_name: "Organize Files Safely"
+  short_description: "Organize files with safe approval gates"
+  default_prompt: "Use $organize-files-safely to inventory my files and propose a safe organization plan without deleting anything."
