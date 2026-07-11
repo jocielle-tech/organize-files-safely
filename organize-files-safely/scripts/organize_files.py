@@ -356,7 +356,7 @@ def apply_command(args: argparse.Namespace) -> int:
         raise SystemExit("Preflight failed:\n- " + "\n- ".join(failures))
 
     journal = absolute_path(args.journal) if args.journal else plan_path.parent / "journal.jsonl"
-    rollback = plan_path.parent / "rollback.csv"
+    rollback = absolute_path(args.rollback) if args.rollback else plan_path.parent / "rollback.csv"
     rollback_rows: list[dict[str, str]] = []
     for row, source, destination in prepared:
         append_journal(
@@ -623,6 +623,7 @@ def build_parser() -> argparse.ArgumentParser:
     apply_parser.add_argument("--batch", required=True)
     apply_parser.add_argument("--allowed-root", default="~/Arquivo")
     apply_parser.add_argument("--journal")
+    apply_parser.add_argument("--rollback", help="Rollback CSV output path")
     apply_parser.add_argument("--execute", action="store_true")
     apply_parser.set_defaults(func=apply_command)
 

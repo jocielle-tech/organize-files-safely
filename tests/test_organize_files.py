@@ -116,6 +116,44 @@ class OrganizeFilesTests(unittest.TestCase):
         self.assertTrue(source_file.exists())
         self.assertFalse(destination.exists())
 
+    def test_apply_accepts_distinct_rollback_output(self) -> None:
+        source_file = self.source / "distinct.txt"
+        source_file.write_text("synthetic", encoding="utf-8")
+        destination_root = self.base / "Arquivo"
+        destination_root.mkdir()
+        destination = destination_root / "distinct.txt"
+        plan = self.base / "actions-distinct.csv"
+        rollback = self.base / "rollback-distinct.csv"
+        with plan.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(handle, fieldnames=MODULE.ACTION_FIELDS)
+            writer.writeheader()
+            writer.writerow(
+                {
+                    "action_id": "A000002",
+                    "batch": "distinct",
+                    "action": "move",
+                    "source": source_file,
+                    "destination": destination,
+                    "reason": "synthetic test",
+                    "confidence": "high",
+                    "decision": "approved",
+                }
+            )
+        run_cli(
+            "apply",
+            "--plan",
+            str(plan),
+            "--batch",
+            "distinct",
+            "--allowed-root",
+            str(destination_root),
+            "--rollback",
+            str(rollback),
+            "--execute",
+        )
+        self.assertTrue(rollback.exists())
+        self.assertFalse((self.base / "rollback.csv").exists())
+
     def test_apply_refuses_collision(self) -> None:
         source_file = self.source / "draft.txt"
         source_file.write_text("source", encoding="utf-8")
