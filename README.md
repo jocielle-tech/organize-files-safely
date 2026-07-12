@@ -4,6 +4,15 @@
 
 A macOS-first Codex skill for inventorying, organizing, renaming, and archiving personal files with explicit approval gates. It never deletes files, never overwrites a destination, and keeps real inventories outside Git.
 
+## Real-world baseline
+
+Privacy-reviewed Finder captures from the initial validation Mac. They show aggregate storage pressure without exposing filenames, personal documents, or private inventories.
+
+<p align="center">
+  <img src="docs/images/02-before-desktop-overview.png" alt="Aggregate iCloud Desktop size before organization" width="265">
+  <img src="docs/images/04-before-storage-pressure.png" alt="APFS storage pressure before organization" width="265">
+</p>
+
 ## Safety model
 
 - Read-only inventory and conservative planning by default.
@@ -21,7 +30,7 @@ python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py \
   ~/.codex/skills/organize-files-safely
 ```
 
-The repository URL will become available only after the validated project is approved for public release.
+Public repository: [jocielle-tech/organize-files-safely](https://github.com/jocielle-tech/organize-files-safely).
 
 ## First inventory
 
