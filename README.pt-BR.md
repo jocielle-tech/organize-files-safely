@@ -13,6 +13,14 @@ Capturas do Finder revisadas para privacidade, obtidas no Mac usado na validaç�
   <img src="docs/images/04-before-storage-pressure.png" alt="Pressão de armazenamento APFS antes da organização" width="265">
 </p>
 
+### Resultado organizado
+
+A raiz local usa categorias numeradas por ciclo de vida, facilitando a visualização e a futura migração de projetos ativos, áreas contínuas, referências, registros e trabalhos concluídos.
+
+<p align="center">
+  <img src="docs/images/05-after-organized-root.png" alt="Raiz organizada com sete categorias por ciclo de vida" width="720">
+</p>
+
 ## Modelo de segurança
 
 - Inventário somente leitura e planejamento conservador por padrão.

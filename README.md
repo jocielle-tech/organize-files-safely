@@ -13,6 +13,14 @@ Privacy-reviewed Finder captures from the initial validation Mac. They show aggr
   <img src="docs/images/04-before-storage-pressure.png" alt="APFS storage pressure before organization" width="265">
 </p>
 
+### Organized result
+
+The local archive root uses numbered lifecycle categories so active projects, ongoing areas, references, records, and completed work remain easy to scan and migrate.
+
+<p align="center">
+  <img src="docs/images/05-after-organized-root.png" alt="Organized file root with seven lifecycle categories" width="720">
+</p>
+
 ## Safety model
 
 - Read-only inventory and conservative planning by default.
