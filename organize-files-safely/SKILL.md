@@ -7,6 +7,96 @@ description: Safely inventory, classify, rename, organize, and archive personal 
 
 Organize user files through a reviewable, local-only workflow. Never delete files or infer approval from a general organization request.
 
+## Quick tutorial
+
+Use the skill by naming a source and the desired outcome. Keep the default workflow when the user does not request customization.
+
+### 1. Inventory without changes
+
+Example request:
+
+> Use `$organize-files-safely` to inspect `~/Downloads` without changing anything.
+
+Expected output:
+
+```text
+Inventory complete
+Source: ~/Downloads
+Mode: read-only
+Private run: ~/.organize-files-safely/runs/<run-id>/
+Source modifications: 0
+Next step: review the proposed actions
+```
+
+### 2. Propose an organization plan
+
+Example request:
+
+> Organize my Downloads into small reviewable batches.
+
+Expected output:
+
+```text
+Batch 001 — proposed, not executed
+Items: 5
+Destination: ~/Arquivo/00 - Entrada/...
+Conflicts: 0
+Cloud impact: none
+Approval required before apply
+```
+
+### 3. Apply an approved batch
+
+Example request:
+
+> I approve batch 001 exactly as shown.
+
+Expected output:
+
+```text
+Batch 001 complete
+Completed actions: 5
+Failed actions: 0
+Journal: <private-run>/journal-batch-001.jsonl
+Rollback: <private-run>/rollback-batch-001.csv
+Deleted files: 0
+```
+
+### 4. Copy a completed project to external storage
+
+Example request:
+
+> Prepare this completed project for my external drive and keep the source.
+
+Expected output before execution:
+
+```text
+Source and destination verified
+Filesystem compatibility checked
+Expected copy size reported
+Source retention: required
+Explicit approval required before copy and SHA-256 verification
+```
+
+### 5. Request a custom output folder
+
+The user may request a specific private run folder or a specific destination folder. Honor the requested path only after checking scope, permissions, collisions, cloud impact, and filesystem compatibility. Do not change the default paths when the user does not request customization.
+
+Example requests:
+
+> Save this inventory in `~/.organize-files-safely/runs/my-audit`.
+
+> Create `~/Arquivo/20 - Areas/Teaching` as the destination in the proposed plan.
+
+Expected output:
+
+```text
+Requested output: <exact requested path>
+Path status: available or conflict detected
+Action status: proposed
+Approval required before creating a destination or moving files
+```
+
 ## Workflow
 
 1. Read [safety.md](references/safety.md) before touching real files.
