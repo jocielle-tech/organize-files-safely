@@ -1,11 +1,17 @@
 ---
 name: organize-files-safely
-description: Safely inventory, classify, rename, organize, and archive personal files with explicit approval gates, collision protection, audit journals, rollback plans, duplicate reports, and copy verification. Use when Codex needs to organize macOS folders such as Desktop or Downloads, propose a folder taxonomy, prepare completed projects for external storage, standardize filenames, identify cleanup candidates without deleting them, or execute an already approved batch of file moves.
+description: Safely inventory, classify, rename, organize, and archive personal files with explicit approval gates, collision protection, audit journals, rollback plans, duplicate reports, and copy verification. Use when an AI agent needs to organize macOS folders such as Desktop or Downloads, propose a folder taxonomy, prepare completed projects for external storage, standardize filenames, identify cleanup candidates without deleting them, or execute an already approved batch of file moves.
 ---
 
 # Organize Files Safely
 
 Organize user files through a reviewable, local-only workflow. Never delete files or infer approval from a general organization request.
+
+## Runtime compatibility
+
+Use this canonical skill folder unchanged with Agent Skills-compatible agents, including OpenAI Codex, Claude Code, Hermes Agent, and OpenClaw. Resolve the skill root as the directory containing this `SKILL.md` before running bundled scripts; never assume the current working directory is the skill root.
+
+Use `python3 "<skill-root>/scripts/organize_files.py" --help` to confirm the resolved path. Treat `agents/openai.yaml` as optional Codex interface metadata, not as a runtime requirement. Do not depend on agent-specific frontmatter or tools for the safety workflow.
 
 ## Quick tutorial
 
@@ -15,7 +21,7 @@ Use the skill by naming a source and the desired outcome. Keep the default workf
 
 Example request:
 
-> Use `$organize-files-safely` to inspect `~/Downloads` without changing anything.
+> Use `organize-files-safely` to inspect `~/Downloads` without changing anything.
 
 Expected output:
 
@@ -109,17 +115,17 @@ Approval required before creating a destination or moving files
 
 ## Commands
 
-Use `python3 scripts/organize_files.py --help` for all options.
+Resolve `<skill-root>` to the directory containing this `SKILL.md`, then use `python3 "<skill-root>/scripts/organize_files.py" --help` for all options.
 
 ```bash
-python3 scripts/organize_files.py inventory \
+python3 "<skill-root>/scripts/organize_files.py" inventory \
   --source ~/Downloads --max-depth 2
 
-python3 scripts/organize_files.py plan \
+python3 "<skill-root>/scripts/organize_files.py" plan \
   --inventory ~/.organize-files-safely/runs/<run-id>/inventory.jsonl \
   --destination-root ~/Arquivo
 
-python3 scripts/organize_files.py cleanup-report \
+python3 "<skill-root>/scripts/organize_files.py" cleanup-report \
   --inventory ~/.organize-files-safely/runs/<run-id>/inventory.jsonl
 ```
 
