@@ -1,6 +1,6 @@
 ---
 name: organize-files-safely
-description: Safely inventory, classify, rename, organize, and archive personal files with explicit approval gates, collision protection, audit journals, rollback plans, duplicate reports, and copy verification. Use when an AI agent needs to organize macOS folders such as Desktop or Downloads, propose a folder taxonomy, prepare completed projects for external storage, standardize filenames, identify cleanup candidates without deleting them, or execute an already approved batch of file moves.
+description: Safely inventory, classify, rename, organize, and archive personal files with explicit approval gates, collision protection, audit journals, rollback plans, duplicate reports, and copy verification. Use when an AI agent needs to organize macOS folders such as Desktop or Downloads, propose a folder taxonomy, prepare completed projects for external storage, standardize filenames, identify cleanup candidates without deleting them, catalog dated workspace folders by project with a linked Markdown index, or execute an already approved batch of file moves.
 ---
 
 # Organize Files Safely
@@ -112,6 +112,10 @@ Approval required before creating a destination or moving files
 5. Apply only the exact batch the user explicitly approves. Keep the plan and journal for rollback.
 6. Copy completed projects to compatible external storage and verify SHA-256. Keep the source and report it as a possible local cleanup candidate.
 7. Report cleanup candidates; never delete or move them to Trash.
+
+## Project catalogs
+
+When dated workspace folders mix projects or recurring jobs, follow [project-catalogs.md](references/project-catalogs.md) to identify projects, preserve path dependencies, and build or update a linked Markdown index.
 
 ## Commands
 

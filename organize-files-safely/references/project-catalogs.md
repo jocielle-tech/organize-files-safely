@@ -1,0 +1,9 @@
+# Catalog project folders
+
+Use this workflow when a workspace contains named project folders and dated folders created by chats or recurring jobs.
+
+1. Inventory the project root and the visible children of each dated folder. Classify mixed dates by child, and retain the original date as provenance. Use names, README files, and recognizable deliverables to corroborate project identity. Leave generic names unresolved when evidence is weak.
+2. Where available, enumerate local projects and paginated active and archived chat history. Match using the recorded workspace path, including ancestor and descendant relationships. Check relevant configuration, scripts, and scheduled jobs for old absolute paths. Keep referenced folders in place when those links cannot be updated and verified. A missing chat match alone does not establish that a move is safe.
+3. Reuse an existing project destination only when identity is confirmed. Group recurring jobs by routine and original date. Do not split technical packages, Git worktrees, or other protected structures. Present the exact eligible moves for approval using the standard safety workflow. Record evidence and the reason for each deferred item.
+4. Create the user-facing index at the selected root. Prefer Markdown with relative links, one entry per project, area headings, brief evidence-based descriptions, and original dates where known. Link directly to verified chat and deliverable targets. List routines and unresolved items separately, using their current locations. Use local filenames and summaries only to the extent needed by the reader.
+5. Verify links against the current filesystem before writing the index. After each approved batch, update only the affected links, reconcile indexed items with the inventory and move journal, and check that recorded project paths remain usable. Keep private inventories, chat metadata, paths and journals out of commits and public examples.
